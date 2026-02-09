@@ -108,3 +108,6 @@ Sales were aggregated by customer location to determine which regions generated 
 This project used SQL to analyze Retail Mart’s sales performance, customer behavior, and order outcomes using a relational e-commerce dataset. By joining multiple tables and applying aggregations, conditional logic, and date functions, meaningful insights were generated to support data-driven decision-making.
 The analysis showed that sales performance is driven primarily by completed orders, with revenue concentrated in specific product categories and customer locations. While overall sales activity appears strong, the presence of cancelled and pending orders highlights opportunities to improve order fulfillment and operational efficiency. Additionally, customer purchase patterns reveal a group of high-value customers who contribute disproportionately to order volume. The findings highlight opportunities to optimize revenue, improve order fulfillment processes, and strengthen customer retention. Further analysis could incorporate promotional data, customer demographics, or time-based purchasing trends to better understand the drivers of sales performance and customer engagement.
 
+
+## Author
+DIDEOLAMI ADETUBERU | DATA ANALYST | EXCEL | SQL | POWER BI
