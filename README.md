@@ -14,6 +14,17 @@ Although Retail Mart records healthy sales volumes, management has identified se
 
 Without proper analysis, these issues may lead to inefficient business strategies. This project aims to use SQL to investigate these problems and provide insights that can help management understand customer behavior, sales performance and operational bottlenecks.
 
+## Business Context & Strategic Importance
+Retail Mart operates in a competitive e-commerce environment where profitability depends on successful order completion, efficient payment processing, strong product performance, and customer retention.
+
+High cancellation rates, failed payments, and low repeat purchases can significantly reduce revenue and increase operational costs. Understanding these patterns is essential to:
+  - Improve conversion rates
+  - Reduce operational leakage
+  - Increase customer lifetime value
+  - Strengthen regional performance
+
+This analysis aims to uncover operational inefficiencies and revenue concentration risks using SQL-based investigation.
+
 ## Data Sourcing
 This project used a simulated retail e-commerce database designed for SQL analysis.
 
@@ -39,6 +50,13 @@ Data preparation was carried out using SQL to ensure the dataset was properly st
   - Created calculated fields such as total sales by deriving values from unit price and quantity.
   - Extracted date components (month and year) from order dates to enable time-based analysis.
   - Aggregated data using GROUP BY with SUM, COUNT, and AVG to summarize sales performance and customer behavior.
+
+## Assumptions Made During Analysis
+  - Orders marked as “Completed” represent successfully fulfilled transactions and valid revenue.
+  - Cancelled and Pending orders were excluded from revenue calculations to prevent overstating financial performance.
+  - Total Sales were calculated as Quantity × Unit Price at the order-item level.
+  - Customers with higher order frequency were considered high-value customers (revenue-based lifetime value was not calculated).
+  - Payment status reflects final transaction outcome, even though multiple payment attempts may exist.
 
 ## Analysis 
 This analysis was conducted using SQL to evaluate Retail Mart’s sales performance, customer behavior, order outcomes and payment effectiveness. Multiple tables were joined to generate meaningful insights across customers, products, payments and locations.
@@ -84,9 +102,13 @@ Sales were aggregated by customer location to determine which regions generated 
 
 ![](Geographical_Distribution.PNG)
 
+## Metrics Considered but Not Selected
+  - Gross order count was not used as a primary performance metric since it includes cancelled and pending orders that do not generate revenue.
+  - Customer lifetime value (CLV) was not calculated due to absence of long-term revenue tracking beyond the one-year dataset.
+  - Profit margin was not included since cost data was unavailable.
 
 ## Insights & Findings
-  - Sofas dominate with** 89k** in sales, bag of rice follow strongly with **85k**, cooking gas with **74k** and suits with **53k**.
+  - Sofas dominate with** 89k** in sales, bag of rice follow strongly with **85k**, cooking gas with **74k** and suits with **53k**. Revenue concentration in a small number of products (Sofas and Bag of Rice) suggests dependency risk. A disruption in supply or demand for these products could significantly impact overall revenue stability.
   - Home categories perform best in sales with **89k**, Groceries category follows as the second leading with **85k**, Electronics with **74k** and then lastly Clothing with **53k**.
   - Out of **1200** orders, retail mart accounted for **379** completed orders, **399** pending orders and **422** cancelled orders.
   - Failed payments have a completion rate of **30.79%** while successful payments have a completion rate of **32.42%**. Initial analysis shows similar order completion rates for failed and successful payments (*30.79% vs 32.42%**), suggesting that payment status alone does not strongly influence order completion. This may be due to multiple payment attempts per order or alternative payment methods.
@@ -94,6 +116,13 @@ Sales were aggregated by customer location to determine which regions generated 
   - Lagos generates the highest revenue with **87k** in sales, Ibadan with **74k**, Abuja with **82k** and Port Harcourt with **58k**.
   - Lagos records the highest total sales and has the highest order completion rate at **33.97%**, indicating both strong demand and efficient order fulfillment. Port Harcourt, despite having the lowest total sales, achieves a higher completion rate (*30.00%**) than Abuja (**29.01%**), suggesting better conversion efficiency relative to its sales volume.
   - Payment method affects order completion slightly. Card payments perform best suggesting faster confirmation and better integration. Cash payment has the highest total orders but moderate completion rate, high pending + cancelled suggests cash orders may be more likely to stall. Transfers perform the weakest, likely due to delayed confirmation, manual verification or customer abandonment during transfer. Thus, it influences completion, but operational factors still matter more.
+
+
+## Operational Implications
+  - High cancellation and pending order volumes suggest potential inefficiencies in order verification or inventory confirmation.
+  - Revenue concentration in Lagos highlights market strength but also geographic dependency risk.
+  - Moderate completion rates across payment types indicate that operational flow, not just payment method, influences final outcomes.
+  - Customer order frequency analysis reveals reliance on a small group of repeat buyers.
 
 
 ## Recommendations 
@@ -107,6 +136,13 @@ Sales were aggregated by customer location to determine which regions generated 
 ## Conclusion 
 This project used SQL to analyze Retail Mart’s sales performance, customer behavior, and order outcomes using a relational e-commerce dataset. By joining multiple tables and applying aggregations, conditional logic, and date functions, meaningful insights were generated to support data-driven decision-making.
 The analysis showed that sales performance is driven primarily by completed orders, with revenue concentrated in specific product categories and customer locations. While overall sales activity appears strong, the presence of cancelled and pending orders highlights opportunities to improve order fulfillment and operational efficiency. Additionally, customer purchase patterns reveal a group of high-value customers who contribute disproportionately to order volume. The findings highlight opportunities to optimize revenue, improve order fulfillment processes, and strengthen customer retention. Further analysis could incorporate promotional data, customer demographics, or time-based purchasing trends to better understand the drivers of sales performance and customer engagement.
+
+
+## Data Limitations
+  - The dataset is simulated and may not reflect real-world operational constraints.
+  - No cost data was available; therefore, profit margin analysis could not be performed.
+  - Customer lifetime value was approximated using order frequency rather than total revenue contribution.
+  - The one-year period may not fully capture seasonal demand patterns.
 
 
 ## Author
